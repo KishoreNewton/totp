@@ -1,0 +1,22 @@
+{
+  "name": "totp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "otpauth": "^9.1.5",
+    "qrcode": "^1.5.3",
+    "qrcode-terminal": "^0.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.9",
+    "@types/qrcode": "^1.5.4",
+    "@types/qrcode-terminal": "^0.12.1"
+  }
+}
