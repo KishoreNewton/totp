@@ -121,8 +121,8 @@ const rl = readline.createInterface({
 
 
 function generateQRCode(secret: string): void {
-  const label = encodeURIComponent("test@pionglobal.com");  // Replace with appropriate label
-  const issuer = encodeURIComponent("PionGlobal");  // Replace with your app's name
+  const label = encodeURIComponent("test@tes.com");  // Replace with appropriate label
+  const issuer = encodeURIComponent("New");  // Replace with your app's name
   const uri = `otpauth://totp/${label}?secret=${secret}&issuer=${issuer}`;
 
   QRCode.toDataURL(uri, (err: any, url: any) => {
