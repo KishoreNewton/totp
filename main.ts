@@ -3,7 +3,6 @@ import * as QRCodeTerminal from "qrcode-terminal";
 import * as QRCode from "qrcode";
 import * as readline from "readline";
 
-// Convert a base32 string into a hex string.
 function base32ToHex(base32: string): string {
   const base32chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
   let bits = "";
@@ -15,7 +14,8 @@ function base32ToHex(base32: string): string {
   }
 
   for (let i = 0; i + 4 <= bits.length; i += 4) {
-    const chunk = bits.substr(i, 4);
+    // Replace substr with substring
+    const chunk = bits.substring(i, i + 4);
     hex += parseInt(chunk, 2).toString(16);
   }
 

@@ -27,7 +27,6 @@ const crypto_1 = require("crypto");
 const QRCodeTerminal = __importStar(require("qrcode-terminal"));
 const QRCode = __importStar(require("qrcode"));
 const readline = __importStar(require("readline"));
-// Convert a base32 string into a hex string.
 function base32ToHex(base32) {
     const base32chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
     let bits = "";
@@ -37,7 +36,8 @@ function base32ToHex(base32) {
         bits += leftPad(val.toString(2), 5, "0");
     }
     for (let i = 0; i + 4 <= bits.length; i += 4) {
-        const chunk = bits.substr(i, 4);
+        // Replace substr with substring
+        const chunk = bits.substring(i, i + 4);
         hex += parseInt(chunk, 2).toString(16);
     }
     return hex;
@@ -102,8 +102,8 @@ const rl = readline.createInterface({
     output: process.stdout,
 });
 function generateQRCode(secret) {
-    const label = encodeURIComponent("test@pionglobal.com"); // Replace with appropriate label
-    const issuer = encodeURIComponent("PionGlobal"); // Replace with your app's name
+    const label = encodeURIComponent("test@tes.com"); // Replace with appropriate label
+    const issuer = encodeURIComponent("New"); // Replace with your app's name
     const uri = `otpauth://totp/${label}?secret=${secret}&issuer=${issuer}`;
     QRCode.toDataURL(uri, (err, url) => {
         if (err) {
